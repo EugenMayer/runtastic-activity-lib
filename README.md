@@ -21,13 +21,15 @@ We only need the sub-folder Sport-sessions/GPS-data - not the whole folder. This
 
 ### 2. Convert your data
 
-Download the runtastic-activitiy-parser release from the Github page and the run
+[Download the runtastic-activitiy-parser.jar](https://github.com/EugenMayer/runtastic-activity-parser/releases/download/0.0.1/runtastic-activity-parser.jar) release from the Github page and the run
 
 ```bash
 java -jar runtastic-activity-parser.jar ~/Downloads/runtastic_export/Sport-sessions/GPS-data ~/Downloads/converted-data
 ```
 
 Now you have all your data in `~/Downloads/converted-data`
+
+Hint: Of course, source folder and destination folder are just examples and can be anything.
 
 ### 3. Import your data
 
