@@ -1,15 +1,15 @@
 # Runtastic-Activity-Parser
 
 A simple parser to convert activities from runtastic to a basic GPX format.
+This can be used to export rRuntastic activities and import them into Strava or other services.
 
-## Building
-This is a Java Project build with maven.
-Build the project with \
- ``` mvn package ```
+Hint: as for now, you can only import date and GPS data, e.g. you heartrate can not be imported
 
-## Export Runtastic Data
-The module allows you to parse runtastic activities. First you have to download all your own data of runtastic. 
-Follow the steps below:
+## Usage
+
+### 1. Export your data
+To export your activities out of Runtastic, you need to login into their Web-App
+
 1. Login to [runtastic.com](https://www.runtastic.com)
 2. Navigate to your profile > Settings. In the settings menu you can 
 find a point called "Export". There you can request all your personal data
@@ -17,8 +17,33 @@ stored by runtastic. After few minutes you will get a mail with a download link.
 3. Downloading the package of your whole personal data. The package contains 
 a folder 'Sport-sessions'. This folder includes all your activities in seperated JSON files. 
 
-## Parse JSON Files to GPX
-To parse the activity JSON files to GPX files run the build jar like following: \
-``` java -jar runtastic-activity-parser /User/bob/Sport-sessions/GPS-data /User/bob/output ``` \
-The first argument is the source path and the second the target path.
-   
+We only need the sub-folder Sport-sessions/GPS-data - not the whole folder. This export does include all your other data too.
+
+### 2. Convert your data
+
+Download the runtastic-activitiy-parser release from the Github page and the run
+
+```bash
+java -jar runtastic-activity-parser.jar ~/Downloads/runtastic_export/Sport-sessions/GPS-data ~/Downloads/converted-data
+```
+
+Now you have all your data in `~/Downloads/converted-data`
+
+### 3. Import your data
+
+This would be fro Strava, other can work too
+
+1. Go to https://www.strava.com/upload/select
+2. Now upload all your converted data ( `.gpx files` ) from `~Downloads/converted-data` (you can select up to 25 files at once)
+
+## Building
+
+This is a Java Project build with maven.
+Build the project with \
+```bash
+mvn package 
+```
+
+## Credits
+
+All of those to the initial authori [mato1092](https://github.com/mato1092/runtastic-activity-lib) - he did the entire work.
